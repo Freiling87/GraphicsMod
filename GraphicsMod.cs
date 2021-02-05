@@ -9,11 +9,11 @@ namespace SORHD
     [BepInPlugin("freiling87.streetsofrogue.SORHD", "SOR HD", "1.0")]
     [BepInProcess("StreetsOfRogue.exe")]
 
-    public class SORHD
+    public class GraphicsMod
     {
         public void Awake()
         {
-            DirectoryInfo dir = new DirectoryInfo(@"C:\Steam\steamapps\common\Streets of Rogue\SORHD\Resources\Item");
+            DirectoryInfo dir = new DirectoryInfo(@"C:\Steam\steamapps\common\Streets of Rogue\BepInEx\Plugins\Sprites");
 
             DirectoryInfo dirBody = dir.CreateSubdirectory("Body");
             DirectoryInfo dirBodyG = dir.CreateSubdirectory("BodyG");
@@ -47,6 +47,7 @@ namespace SORHD
                 byte[] raw = File.ReadAllBytes(file.ToString());
                 Rect region = new Rect(0, 0, 64, 64);
                 float ppu = 64f;
+
                 RogueLibs.AddCustomSprite(name, scope, raw, region, ppu);
             }
         }
