@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace SORHD
 {
-    [BepInPlugin("freiling87.streetsofrogue.SORHD", "SOR HD", "1.0")]
+    [BepInPlugin("community.streetsofrogue.SORHD", "SOR HD", "1.0")]
     [BepInProcess("StreetsOfRogue.exe")]
 
     public class GraphicsMod
