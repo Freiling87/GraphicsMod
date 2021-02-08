@@ -1,18 +1,28 @@
 ﻿using System.IO;
 
 using BepInEx;
+using BepInEx.Logging;
 using RogueLibsCore;
 using UnityEngine;
 
 namespace SORHD
 {
-    [BepInPlugin("community.streetsofrogue.SORHD", "SOR HD", "1.0")]
+    [BepInPlugin(pluginGuid, pluginName, pluginVersion)]
     [BepInProcess("StreetsOfRogue.exe")]
+    [BepInDependency("abbysssal.streetsofrogue.roguelibs", "2.0")]
 
-    public class GraphicsMod
+    public class GraphicsMod : BaseUnityPlugin
     {
+        public const string pluginGuid = "community.streetsofrogue.sors";
+        public const string pluginName = "Streets of Rogue Sprite Editor";
+        public const string pluginVersion = "1.0";
+
+        public static ManualLogSource ConsoleMessage;
+
         public void Awake()
         {
+            Log("Loaded " + pluginName + " " + pluginVersion);
+
             DirectoryInfo dir = new DirectoryInfo(@"C:\Steam\steamapps\common\Streets of Rogue\BepInEx\Plugins\Sprites");
 
             DirectoryInfo dirBody = dir.CreateSubdirectory("Body");
@@ -43,6 +53,8 @@ namespace SORHD
         {
             foreach (FileInfo file in directory.EnumerateFiles())
             {
+                Log("Loaded Sprite: " + file.Name);
+
                 string name = Path.GetFileNameWithoutExtension(file.ToString());
                 byte[] raw = File.ReadAllBytes(file.ToString());
                 Rect region = new Rect(0, 0, 64, 64);
@@ -51,5 +63,7 @@ namespace SORHD
                 RogueLibs.AddCustomSprite(name, scope, raw, region, ppu);
             }
         }
+        public static void Log(string logMessage) =>
+            ConsoleMessage.LogMessage(logMessage);
     }
 }
