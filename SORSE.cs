@@ -21,9 +21,7 @@ namespace SORHD
 
         public void Awake()
         {
-            Log("Loaded " + pluginName + " " + pluginVersion);
-
-            DirectoryInfo dir = new DirectoryInfo(@"C:\Steam\steamapps\common\Streets of Rogue\BepInEx\Plugins\Sprites");
+            DirectoryInfo dir = new DirectoryInfo(@"C:\Program Files (x86)\Steam\steamapps\common\Streets of Rogue\BepInEx\Plugins\Sprites");
 
             DirectoryInfo dirBody = dir.CreateSubdirectory("Body");
             DirectoryInfo dirBodyG = dir.CreateSubdirectory("BodyG");
