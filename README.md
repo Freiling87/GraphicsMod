@@ -1,5 +1,4 @@
-# SORSE
-# Streets of Rogue Sprite Editor
+# SORSE  -  Streets of Rogue Sprite Editor
 
 ## Description
 
