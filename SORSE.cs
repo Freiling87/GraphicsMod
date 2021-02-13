@@ -9,7 +9,7 @@ namespace SORHD
 {
     [BepInPlugin(pluginGuid, pluginName, pluginVersion)]
     [BepInProcess("StreetsOfRogue.exe")]
-    [BepInDependency("abbysssal.streetsofrogue.roguelibs", "2.0")]
+    [BepInDependency("abbysssal.streetsofrogue.roguelibs", "2.1.1")]
 
     public class GraphicsMod : BaseUnityPlugin
     {
@@ -17,36 +17,46 @@ namespace SORHD
         public const string pluginName = "Streets of Rogue Sprite Editor";
         public const string pluginVersion = "1.0";
 
+        public static BaseUnityPlugin MainInstance;
         public static ManualLogSource ConsoleMessage;
 
         public void Awake()
         {
-            DirectoryInfo dir = new DirectoryInfo(@"C:\Program Files (x86)\Steam\steamapps\common\Streets of Rogue\BepInEx\Plugins\Sprites");
+            MainInstance = this;
+            ConsoleMessage = Logger;
+            
+            Log("Loading Directory");
 
-            DirectoryInfo dirBody = dir.CreateSubdirectory("Body");
-            DirectoryInfo dirBodyG = dir.CreateSubdirectory("BodyG");
-            DirectoryInfo dirEyes = dir.CreateSubdirectory("Eyes");
-            DirectoryInfo dirFacialHair = dir.CreateSubdirectory("FacialHair");
-            DirectoryInfo dirFloor = dir.CreateSubdirectory("Floor");
-            DirectoryInfo dirHair = dir.CreateSubdirectory("Hair");
-            DirectoryInfo dirHead = dir.CreateSubdirectory("Head");
-            DirectoryInfo dirHeadPieces = dir.CreateSubdirectory("HeadPieces");
-            DirectoryInfo dirItem = dir.CreateSubdirectory("Item");
-            DirectoryInfo dirObject = dir.CreateSubdirectory("Object");
-            DirectoryInfo dirWall = dir.CreateSubdirectory("Wall");
+            DirectoryInfo dir = new DirectoryInfo(@"C:\Program Files (x86)\Steam\steamapps\common\Streets of Rogue\Sprites");
 
-            LoadSpritesFrom(dirBody, SpriteScope.Extra);
-            LoadSpritesFrom(dirBodyG, SpriteScope.Extra);
-            LoadSpritesFrom(dirEyes, SpriteScope.Extra);
-            LoadSpritesFrom(dirFacialHair, SpriteScope.Extra);
-            LoadSpritesFrom(dirFloor, SpriteScope.Extra);
-            LoadSpritesFrom(dirHair, SpriteScope.Extra);
-            LoadSpritesFrom(dirHead, SpriteScope.Extra);
-            LoadSpritesFrom(dirHeadPieces, SpriteScope.Extra);
-            LoadSpritesFrom(dirItem, SpriteScope.Items);
-            LoadSpritesFrom(dirObject, SpriteScope.Objects);
-            LoadSpritesFrom(dirWall, SpriteScope.Extra);
-        }
+            Log("Loading Subdirectories");
+
+            //DirectoryInfo dirBody = dir.CreateSubdirectory("Body");
+            //DirectoryInfo dirBodyG = dir.CreateSubdirectory("BodyG");
+            //DirectoryInfo dirEyes = dir.CreateSubdirectory("Eyes");
+            //DirectoryInfo dirFacialHair = dir.CreateSubdirectory("FacialHair");
+            //DirectoryInfo dirFloor = dir.CreateSubdirectory("Floor");
+            //DirectoryInfo dirHair = dir.CreateSubdirectory("Hair");
+            //DirectoryInfo dirHead = dir.CreateSubdirectory("Head");
+            //DirectoryInfo dirHeadPieces = dir.CreateSubdirectory("HeadPieces");
+            DirectoryInfo dirItem = dir.CreateSubdirectory("item");
+            //DirectoryInfo dirObject = dir.CreateSubdirectory("Object");
+            //DirectoryInfo dirWall = dir.CreateSubdirectory("Wall");
+
+            Log("Loading Sprites");
+
+			//LoadSpritesFrom(dirBody, SpriteScope.Extra);
+			//LoadSpritesFrom(dirBodyG, SpriteScope.Extra);
+			//LoadSpritesFrom(dirEyes, SpriteScope.Extra);
+			//LoadSpritesFrom(dirFacialHair, SpriteScope.Extra);
+			//LoadSpritesFrom(dirFloor, SpriteScope.Extra);
+			//LoadSpritesFrom(dirHair, SpriteScope.Extra);
+			//LoadSpritesFrom(dirHead, SpriteScope.Extra);
+			//LoadSpritesFrom(dirHeadPieces, SpriteScope.Extra);
+			LoadSpritesFrom(dirItem, SpriteScope.Items);
+			//LoadSpritesFrom(dirObject, SpriteScope.Objects);
+			//LoadSpritesFrom(dirWall, SpriteScope.Extra);
+		}
         public void LoadSpritesFrom(DirectoryInfo directory, SpriteScope scope)
         {
             foreach (FileInfo file in directory.EnumerateFiles())
