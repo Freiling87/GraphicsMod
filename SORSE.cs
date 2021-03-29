@@ -17,10 +17,16 @@ namespace SORHD
         public const string pluginName = "Streets of Rogue Sprite Editor";
         public const string pluginVersion = "1.0";
 
+        public static BaseUnityPlugin MainInstance;
         public static ManualLogSource ConsoleMessage;
 
         public void Awake()
         {
+            MainInstance = this;
+            ConsoleMessage = Logger;
+
+            Log("Loaded " + pluginName + " " + pluginVersion);
+
             DirectoryInfo dir = new DirectoryInfo(@"C:\Program Files (x86)\Steam\steamapps\common\Streets of Rogue\BepInEx\Plugins\Sprites");
 
             DirectoryInfo dirBody = dir.CreateSubdirectory("Body");
