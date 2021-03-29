@@ -58,20 +58,12 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Libraries\" />
-    <Folder Include="Resources\BodyG\" />
-    <Folder Include="Resources\Body\" />
-    <Folder Include="Resources\Eyes\" />
-    <Folder Include="Resources\FacialHair\" />
-    <Folder Include="Resources\Floor\" />
-    <Folder Include="Resources\Hair\" />
-    <Folder Include="Resources\HeadPieces\" />
-    <Folder Include="Resources\Head\" />
-    <Folder Include="Resources\Item\" />
-    <Folder Include="Resources\Object\" />
-    <Folder Include="Resources\Wall\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="README.md" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Notes.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

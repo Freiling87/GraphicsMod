@@ -9,7 +9,7 @@ namespace SORHD
 {
     [BepInPlugin(pluginGuid, pluginName, pluginVersion)]
     [BepInProcess("StreetsOfRogue.exe")]
-    [BepInDependency("abbysssal.streetsofrogue.roguelibs", "2.0")]
+    [BepInDependency("abbysssal.streetsofrogue.roguelibs", "2.1.1")]
 
     public class GraphicsMod : BaseUnityPlugin
     {
@@ -41,18 +41,18 @@ namespace SORHD
             DirectoryInfo dirObject = dir.CreateSubdirectory("Object");
             DirectoryInfo dirWall = dir.CreateSubdirectory("Wall");
 
-            LoadSpritesFrom(dirBody, SpriteScope.Extra);
-            LoadSpritesFrom(dirBodyG, SpriteScope.Extra);
-            LoadSpritesFrom(dirEyes, SpriteScope.Extra);
-            LoadSpritesFrom(dirFacialHair, SpriteScope.Extra);
-            LoadSpritesFrom(dirFloor, SpriteScope.Extra);
-            LoadSpritesFrom(dirHair, SpriteScope.Extra);
-            LoadSpritesFrom(dirHead, SpriteScope.Extra);
-            LoadSpritesFrom(dirHeadPieces, SpriteScope.Extra);
-            LoadSpritesFrom(dirItem, SpriteScope.Items);
-            LoadSpritesFrom(dirObject, SpriteScope.Objects);
-            LoadSpritesFrom(dirWall, SpriteScope.Extra);
-        }
+			//LoadSpritesFrom(dirBody, SpriteScope.Extra);
+			//LoadSpritesFrom(dirBodyG, SpriteScope.Extra);
+			//LoadSpritesFrom(dirEyes, SpriteScope.Extra);
+			//LoadSpritesFrom(dirFacialHair, SpriteScope.Extra);
+			//LoadSpritesFrom(dirFloor, SpriteScope.Extra);
+			//LoadSpritesFrom(dirHair, SpriteScope.Extra);
+			//LoadSpritesFrom(dirHead, SpriteScope.Extra);
+			//LoadSpritesFrom(dirHeadPieces, SpriteScope.Extra);
+			LoadSpritesFrom(dirItem, SpriteScope.Items);
+			//LoadSpritesFrom(dirObject, SpriteScope.Objects);
+			//LoadSpritesFrom(dirWall, SpriteScope.Extra);
+		}
         public void LoadSpritesFrom(DirectoryInfo directory, SpriteScope scope)
         {
             foreach (FileInfo file in directory.EnumerateFiles())
